@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>合格実績 | 文の里英語専門塾</title>
+<style>
+  :root{
+    --navy:#0b2545;
+    --navy-deep:#061a36;
+    --navy-light:#13315c;
+    --gold:#c9a227;
+    --bg:#f7f9fc;
+    --text:#1a1a1a;
+    --muted:#5a6b85;
+    --line:#e3e8ef;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","游明朝",serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sans{font-family:"Hiragino Sans","Yu Gothic","游ゴシック","Meiryo",sans-serif}
+
+  /* ===== Header ===== */
+  header{
+    background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,var(--navy-light) 100%);
+    color:#fff;
+    padding:18px 0;
+    border-bottom:3px solid var(--gold);
+    position:sticky;top:0;z-index:100;
+    box-shadow:0 2px 15px rgba(0,0,0,.15);
+  }
+  .header-inner{
+    max-width:1100px;margin:0 auto;padding:0 24px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  }
+  .logo{font-size:1.35rem;font-weight:700;letter-spacing:.05em}
+  .logo span{color:var(--gold);font-size:.85rem;display:block;letter-spacing:.2em;font-weight:400;margin-top:2px}
+  nav a{color:#fff;text-decoration:none;margin-left:24px;font-size:.95rem;font-family:"Hiragino Sans",sans-serif;transition:color .2s}
+  nav a:hover{color:var(--gold)}
+
+  /* ===== Hero ===== */
+  .hero{
+    background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);
+    color:#fff;
+    padding:90px 24px 110px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      radial-gradient(circle at 20% 30%,rgba(201,162,39,.08) 0%,transparent 50%),
+      radial-gradient(circle at 80% 70%,rgba(201,162,39,.06) 0%,transparent 50%);
+  }
+  .hero-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+  .hero-badge{
+    display:inline-block;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    padding:6px 20px;
+    font-size:.85rem;
+    letter-spacing:.25em;
+    margin-bottom:28px;
+    font-family:"Hiragino Sans",sans-serif;
+  }
+  .hero h1{
+    font-size:clamp(1.8rem,4.5vw,2.8rem);
+    line-height:1.5;
+    margin-bottom:24px;
+    letter-spacing:.05em;
+  }
+  .hero h1 em{color:var(--gold);font-style:normal;font-size:1.15em}
+  .hero p{
+    font-size:1.05rem;
+    color:#dde4ee;
+    max-width:680px;margin:0 auto;
+    font-family:"Hiragino Sans",sans-serif;
+    line-height:2;
+  }
+
+  /* ===== Section ===== */
+  section{padding:80px 24px}
+  .container{max-width:1100px;margin:0 auto}
+  .sec-title{
+    text-align:center;
+    margin-bottom:56px;
+  }
+  .sec-title .en{
+    display:block;color:var(--gold);
+    font-size:.8rem;letter-spacing:.4em;margin-bottom:12px;
+    font-family:"Hiragino Sans",sans-serif;
+  }
+  .sec-title h2{
+    font-size:clamp(1.6rem,3.5vw,2.1rem);
+    color:var(--navy);
+    letter-spacing:.08em;
+    position:relative;display:inline-block;padding-bottom:18px;
+  }
+  .sec-title h2::after{
+    content:"";position:absolute;left:50%;bottom:0;
+    width:60px;height:2px;background:var(--gold);transform:translateX(-50%);
+  }
+
+  /* ===== Results Stats ===== */
+  .results-headline{
+    text-align:center;
+    background:#fff;
+    padding:40px 24px;
+    border:1px solid var(--line);
+    border-top:4px solid var(--gold);
+    margin-bottom:48px;
+  }
+  .results-headline .year{
+    color:var(--muted);font-size:.95rem;letter-spacing:.2em;
+    font-family:"Hiragino Sans",sans-serif;
+  }
+  .results-headline .total{
+    font-size:clamp(2.5rem,7vw,4rem);
+    color:var(--navy);
+    margin:8px 0;
+    letter-spacing:.05em;
+  }
+  .results-headline .total em{color:var(--gold);font-style:normal;font-size:1.4em;margin:0 .1em}
+  .results-headline .label{
+    color:var(--navy);font-size:1.1rem;letter-spacing:.15em;
+    font-family:"Hiragino Sans",sans-serif;
+  }
+
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+  }
+  .stat-card{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:32px 16px;
+    text-align:center;
+    position:relative;
+    transition:transform .3s,box-shadow .3s;
+  }
+  .stat-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 30px rgba(11,37,69,.12);
+  }
+  .stat-card .grade{
+    color:var(--navy);
+    font-size:1.15rem;
+    letter-spacing:.1em;
+    padding-bottom:14px;
+    margin-bottom:18px;
+    border-bottom:1px solid var(--line);
+    font-family:"Hiragino Sans",sans-serif;
+    font-weight:600;
+  }
+  .stat-card .num{
+    font-size:3rem;
+    color:var(--navy);
+    line-height:1;
+  }
+  .stat-card .num em{
+    color:var(--gold);font-style:normal;font-size:.45em;margin-left:4px;
+    font-family:"Hiragino Sans",sans-serif;
+  }
+  .stat-card.featured{
+    background:linear-gradient(180deg,var(--navy) 0%,var(--navy-light) 100%);
+    border-color:var(--navy);
+  }
+  .stat-card.featured .grade{color:var(--gold);border-bottom-color:rgba(201,162,39,.3)}
+  .stat-card.featured .num{color:#fff}
+  .stat-card.featured .num em{color:var(--gold)}
+
+  /* ===== Message ===== */
+  .message-section{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .message-body{
+    max-width:780px;margin:0 auto;
+    font-size:1.02rem;line-height:2.2;
+    color:#2a2a2a;
+  }
+  .message-body p{margin-bottom:1.5em}
+  .message-body .lead{
+    font-size:1.15rem;
+    color:var(--navy);
+    border-left:3px solid var(--gold);
+    padding-left:20px;
+    margin-bottom:2em;
+    line-height:2;
+  }
+  .quote-inline{
+    background:#f4f6fa;
+    padding:18px 24px;
+    border-left:3px solid var(--navy);
+    margin:1.5em 0;
+    font-size:.98rem;
+    line-height:1.9;
+  }
+
+  /* ===== Testimonials ===== */
+  .testimonial{
+    background:#fff;
+    border:1px solid var(--line);
+    margin-bottom:48px;
+    overflow:hidden;
+    box-shadow:0 4px 20px rgba(11,37,69,.05);
+  }
+  .testimonial-header{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);
+    color:#fff;
+    padding:28px 36px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  .testimonial-grade{
+    font-size:1.4rem;letter-spacing:.1em;
+  }
+  .testimonial-grade .gold{color:var(--gold)}
+  .testimonial-tag{
+    background:var(--gold);
+    color:var(--navy-deep);
+    padding:6px 18px;
+    font-size:.85rem;letter-spacing:.15em;
+    font-family:"Hiragino Sans",sans-serif;
+    font-weight:600;
+  }
+  .testimonial-body{padding:40px 36px}
+  .student-info{
+    background:#f4f6fa;
+    padding:20px 24px;
+    margin-bottom:28px;
+    border-left:3px solid var(--gold);
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:.95rem;
+    line-height:1.9;
+    color:#333;
+  }
+  .student-info strong{color:var(--navy);font-weight:600}
+  .voice-title{
+    color:var(--navy);
+    font-size:1.05rem;letter-spacing:.1em;
+    margin-bottom:18px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--line);
+    font-family:"Hiragino Sans",sans-serif;
+    font-weight:600;
+  }
+  blockquote{
+    background:#fafbfd;
+    padding:22px 28px;
+    margin-bottom:16px;
+    border-left:3px solid var(--navy-light);
+    font-size:.98rem;
+    line-height:2;
+    color:#2a2a2a;
+    position:relative;
+  }
+  blockquote::before{
+    content:"\201C";
+    position:absolute;left:8px;top:-4px;
+    font-size:3rem;color:var(--gold);
+    font-family:Georgia,serif;
+    line-height:1;opacity:.4;
+  }
+  .teacher-note{
+    margin-top:32px;
+    padding:24px;
+    background:linear-gradient(135deg,#fafbfd 0%,#f4f6fa 100%);
+    border:1px solid var(--line);
+  }
+  .teacher-note .note-label{
+    display:inline-block;
+    background:var(--navy);color:#fff;
+    padding:4px 14px;font-size:.8rem;letter-spacing:.2em;
+    font-family:"Hiragino Sans",sans-serif;
+    margin-bottom:14px;
+  }
+  .teacher-note p{margin-bottom:.8em;line-height:2;color:#2a2a2a}
+  .teacher-note p:last-child{margin-bottom:0}
+
+  .highlight{
+    background:linear-gradient(transparent 65%,rgba(201,162,39,.3) 65%);
+    font-weight:600;
+  }
+
+  /* ===== Closing ===== */
+  .closing{
+    background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);
+    color:#fff;
+    text-align:center;
+    padding:90px 24px;
+  }
+  .closing h2{
+    font-size:clamp(1.4rem,3vw,1.9rem);
+    margin-bottom:24px;letter-spacing:.1em;
+  }
+  .closing h2 em{color:var(--gold);font-style:normal}
+  .closing p{
+    max-width:640px;margin:0 auto;
+    color:#dde4ee;line-height:2.2;
+    font-family:"Hiragino Sans",sans-serif;
+  }
+
+  /* ===== Footer ===== */
+  footer{
+    background:#061a36;color:#9aa8bd;
+    text-align:center;padding:32px 24px;
+    font-size:.85rem;
+    font-family:"Hiragino Sans",sans-serif;
+    letter-spacing:.1em;
+  }
+  footer a{color:var(--gold);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+
+  /* ===== Responsive ===== */
+  @media(max-width:768px){
+    .stats-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+    .stat-card{padding:24px 12px}
+    .stat-card .num{font-size:2.4rem}
+    nav{width:100%;text-align:center}
+    nav a{margin:0 12px;font-size:.85rem}
+    .testimonial-body{padding:28px 22px}
+    .testimonial-header{padding:22px 22px}
+    section{padding:60px 20px}
+    .hero{padding:70px 20px 90px}
+    blockquote{padding:20px 22px 20px 32px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo sans">
+      文の里英語専門塾
+      <span>FUMINOSATO ENGLISH ACADEMY</span>
+    </div>
+    <nav class="sans">
+      <a href="#results">合格実績</a>
+      <a href="#voice1">準1級の声</a>
+      <a href="#voice2">2級の声</a>
+      <a href="#voice3">3か月合格</a>
+      <a href="#voice4">半年合格</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-badge">2025年度 第3回 英検 合格実績</span>
+    <h1>努力を、確かな結果へ。<br><em>20名</em>が、英検合格。</h1>
+    <p>毎週の単語テスト、過去問演習、丁寧な添削。<br>
+    一人ひとりに寄り添う指導が、揺るぎない英語力を育てます。</p>
+  </div>
+</section>
+
+<!-- Results -->
+<section id="results">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">RESULTS</span>
+      <h2>2025年度 第3回 合格実績</h2>
+    </div>
+
+    <div class="results-headline">
+      <div class="year sans">2025年度 第3回 英検</div>
+      <div class="total">合格者<em>20</em>名</div>
+      <div class="label sans">— 全員の努力が、結果につながりました —</div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card featured">
+        <div class="grade">英検 準1級</div>
+        <div class="num">1<em>名</em></div>
+      </div>
+      <div class="stat-card">
+        <div class="grade">英検 2級</div>
+        <div class="num">4<em>名</em></div>
+      </div>
+      <div class="stat-card">
+        <div class="grade">英検 準2級</div>
+        <div class="num">8<em>名</em></div>
+      </div>
+      <div class="stat-card">
+        <div class="grade">英検 3級</div>
+        <div class="num">7<em>名</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Message -->
+<section class="message-section">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">MESSAGE</span>
+      <h2>塾長メッセージ</h2>
+    </div>
+    <div class="message-body">
+      <p class="lead">2025年度第3回の結果がすべて出そろい、今回は20名もの生徒さんが合格することができました。とても嬉しく思います。</p>
+
+      <p>今回、保護者様から特に多くいただいた声が、</p>
+      <div class="quote-inline">「毎回の単語テストに向けて、隙間時間を使いながらコツコツ単語学習を継続できた」</div>
+      <p>というものでした。</p>
+
+      <p>英語学習の中でも、単語学習は特に地道で、継続するのが難しい部分だと思います。実際、私自身も単語学習を続けることにはとても苦労してきました。だからこそ、今回合格した生徒さんたちが、その大変な学習をしっかり継続し、結果につなげたことを本当に素晴らしいと感じています。</p>
+
+      <p>英語力を伸ばすことは決して簡単ではありません。<br>
+      ですが、<span class="highlight">通学の電車の中やちょっとした空き時間を使って単語帳を開く、そうしたひたむきな努力の積み重ね</span>が、今回の合格という結果につながったのだと思います。</p>
+
+      <p>これからも、生徒さんたちがよりスムーズに語彙学習を進められるよう、指導を工夫しながらサポートしていきます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Voice 1: Junkyu 1-kyu -->
+<section id="voice1">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">VOICE 01</span>
+      <h2>合格者・保護者の声</h2>
+    </div>
+
+    <div class="testimonial">
+      <div class="testimonial-header">
+        <div class="testimonial-grade sans">英検 <span class="gold">準1級</span> 合格</div>
+        <div class="testimonial-tag">リーディング 90%以上</div>
+      </div>
+      <div class="testimonial-body">
+        <div class="student-info">
+          <strong>生徒プロフィール</strong>　高校2年生／<strong>東京大学 志望</strong><br>
+          熱心に英検対策を進め、リーディングを90%以上の正答率で合格。
+        </div>
+
+        <div class="voice-title sans">— 保護者様より —</div>
+
+        <blockquote>英語学習は、英単語の暗記なくして始まらないと分かっていても、独学ではなかなか覚える気になれず、完全に身につくまで至りませんでした。</blockquote>
+
+        <blockquote>こちらの塾で、英検の単語確認テストに向けて毎週暗記に取り組むようになり、学校の授業でも知っている単語が増えました。中間・期末考査の勉強もとても楽になりました。</blockquote>
+
+        <blockquote>また、英語学習に意欲的に取り組むようになり、<span class="highlight">成績も飛躍的に向上しました。</span></blockquote>
+
+        <blockquote>こちらの塾に出会い、先生のご指導とサポートをいただいたことで、「『単語テストがあるから覚える』『英検に合格したいから完璧に暗記する』という良い習慣が身につき、その結果、英語の成績も自然と向上しました。</blockquote>
+
+        <div class="teacher-note">
+          <span class="note-label sans">塾長より</span>
+          <p>この生徒さんは、英検準1級でリーディング90％以上の高得点を取得し、合格することができました。圧倒的な語彙力と読解力は、毎週の積み重ねの成果だと感じています。</p>
+          <p>現在は、志望校である<strong>東京大学</strong>に向けた対策を進めています。準1級に高得点で合格し、受験生としてとても良いスタートを切ることができました。これからも志望校合格に向けて、引き続き全力でサポートしていきます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Voice 2: 2-kyu -->
+<section id="voice2" style="background:#fff;border-top:1px solid var(--line)">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">VOICE 02</span>
+      <h2>合格者・保護者の声</h2>
+    </div>
+
+    <div class="testimonial">
+      <div class="testimonial-header">
+        <div class="testimonial-grade sans">英検 <span class="gold">2級</span> 合格</div>
+        <div class="testimonial-tag">合格点 +96点 で合格</div>
+      </div>
+      <div class="testimonial-body">
+        <div class="student-info">
+          <strong>生徒プロフィール</strong>　公立中学2年生／<strong>高校受験</strong>に向けて英語学習を継続中<br>
+          一次試験を合格点のプラス96点で余裕を持って合格。
+        </div>
+
+        <div class="voice-title sans">— 保護者様より —</div>
+
+        <blockquote>単語帳にコツコツ取り組み、本当によく頑張っていました。本人がやる気になってからは、過去問にも意欲的に取り組むようになりました。</blockquote>
+
+        <blockquote>特に良かったと感じたのは、ライティングのご指導です。要約は比較的新しく導入された内容なので、<span class="highlight">正確に採点していただけたことがとてもありがたかった</span>です。また、一人ひとりをよく見てくださり、本人に合った学習法を提案していただけたこともとても良かったです。</blockquote>
+
+        <blockquote>英検の現場を熟知されている先生なので、安心してお任せすることができました。特にライティングの採点はとても的確で、ここまで正確に見ていただける塾は少ないのではないかと感じています。また、性格や理解度に合わせて学習法を提案してくださる点もとても心強かったです。</blockquote>
+
+        <blockquote>S-CBTではあともう少しで合格と悔しい結果の時がありましたが、最終的には、96点超過で2級一次試験に合格することができました。その間にも着実に英語力がついていると感じていました。<span class="highlight">先生のお人柄も含めて、英検対策で迷われている方にぜひおすすめしたい</span>と思います。</blockquote>
+
+        <div class="teacher-note">
+          <span class="note-label sans">塾長より</span>
+          <p>こちらの生徒さんは、毎週の単語テストで満点を目指して、コツコツと努力を重ねてきました。宿題に出していた過去問演習も、解くだけで終わらせず、復習まで丁寧に取り組んでいたことが、今回の合格につながったと感じています。</p>
+          <p>これから中学3年生になり、高校受験に向けた学習が本格化していきます。<strong>中学3年生になる前に英検2級を取得できたことは、高校受験に向けて大きな強み</strong>になります。英検を一つクリアしたことで、これからは受験勉強にも余裕を持って取り組めるはずです。これからの学習の伸びも楽しみにしています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Voice 3: 2-kyu 3-month -->
+<section id="voice3">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">VOICE 03</span>
+      <h2>合格者・保護者の声</h2>
+    </div>
+
+    <div class="testimonial">
+      <div class="testimonial-header">
+        <div class="testimonial-grade sans">英検 <span class="gold">2級</span> 合格</div>
+        <div class="testimonial-tag">入塾から3か月で一発合格</div>
+      </div>
+      <div class="testimonial-body">
+        <div class="student-info">
+          <strong>生徒プロフィール</strong>　中学2年生／<strong>公立高校 文理学科</strong>志望<br>
+          入塾からわずか3か月で英検2級に一発合格。
+        </div>
+
+        <div class="voice-title sans">— 保護者様・生徒様より —</div>
+
+        <blockquote>毎週の単語学習を特に頑張っており、部活・宿題・塾で忙しい中でも、時間を見つけてコツコツ取り組んでいました。その中で、単語テストや日々の声かけが励みとなり、「次はもっと頑張ろう」と前向きに学習を続ける力につながったようです。</blockquote>
+
+        <blockquote>ライティングでは、模範解答や解説だけでは自分の書きたい内容をうまく表現できず苦労することもありましたが、<span class="highlight">書いた内容を活かしながら一文ずつ丁寧に添削していくことで、理解が深まり、表現を自分のものとして身につける</span>ことができました。練習を重ねるうちに英作文が得意になり、新しい問題にも応用して取り組めるようになったとのことです。</blockquote>
+
+        <blockquote>英検合格後は、学校の定期テストで<span class="highlight">90点台後半</span>、M塾の公開テストで<span class="highlight">偏差値60以上</span>を安定して取ることができるようになり、英語受講免除を継続できており、総合的に英語力が伸びていることを実感しました。</blockquote>
+
+        <div class="teacher-note">
+          <span class="note-label sans">塾長より</span>
+          <p>英検2級は、大学受験レベルの語彙も求められるため、特に中学生にとっては語彙の習得が大きな壁になりやすいです。そのため当塾では、難しい単語でも継続して覚えられるよう、毎週の単語テストを通して着実に語彙力を伸ばしていきます。</p>
+          <p>こちらの生徒さんも、日々の語彙学習を積み重ねた結果、しっかりと合格という形で成果を出してくれました。これからの高校受験に向けて、さらに力を伸ばしてくれることを期待しています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Voice 4: 2-kyu balanced -->
+<section id="voice4" style="background:#fff;border-top:1px solid var(--line)">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">VOICE 04</span>
+      <h2>合格者・保護者の声</h2>
+    </div>
+
+    <div class="testimonial">
+      <div class="testimonial-header">
+        <div class="testimonial-grade sans">英検 <span class="gold">2級</span> 合格</div>
+        <div class="testimonial-tag">ライティング・要約 共に80%超</div>
+      </div>
+      <div class="testimonial-body">
+        <div class="student-info">
+          <strong>生徒プロフィール</strong>　中学2年生／<strong>高校受験</strong>に向けて2級取得を目標<br>
+          約半年間の対策で、英検2級に合格。
+        </div>
+
+        <div class="voice-title sans">— 合格までの歩み —</div>
+
+        <blockquote>高校受験に向けて2級取得を目指しており、入塾当初は単語の暗記に苦手意識がありました。しかし、<span class="highlight">毎週の単語テストを通して少しずつ学習習慣が身につき、自分から単語を覚えようとする姿勢</span>が見られるようになりました。</blockquote>
+
+        <blockquote>ライティングでは英作文と要約の書き方を丁寧に確認し、本番ではどちらも<span class="highlight">80％を超える得点で合格</span>。語彙力・読解力・ライティング力をバランスよく伸ばすことができました。</blockquote>
+
+        <div class="voice-title sans" style="margin-top:32px">— 保護者様より —</div>
+
+        <blockquote>英検に特化した実践的なサポートが充実していた。</blockquote>
+
+        <div class="teacher-note">
+          <span class="note-label sans">塾長より</span>
+          <p>英検2級は、中学生にとって簡単な級ではありません。しかし、<strong>正しい方向で継続して対策をすれば、中学生のうちに合格を目指すことも可能</strong>です。</p>
+          <p>英検合格を目指す中学生の方は、ぜひ一度ご相談ください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Closing -->
+<section class="closing">
+  <h2>一人ひとりに、<em>本気の指導</em>を。</h2>
+  <p>文の里英語専門塾は、英検対策・難関校受験英語に特化した専門塾です。<br>
+  毎週の単語テスト、ライティングの正確な添削、生徒に合わせた学習法のご提案。<br>
+  着実な英語力の積み上げで、お子様の目標達成を全力でサポートします。</p>
+</section>
+
+<footer>
+  <p>© 文の里英語専門塾 FUMINOSATO ENGLISH ACADEMY</p>
+  <p style="margin-top:8px"><a href="https://www.instagram.com/taroenglish96/" target="_blank" rel="noopener">Instagram: @taroenglish96</a></p>
+</footer>
+
+</body>
+</html>
